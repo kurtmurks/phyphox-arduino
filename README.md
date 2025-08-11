@@ -8,11 +8,12 @@ The purpose of this library is to use the phyphox app (see www.phyphox.org) to p
 - Arduino Nano Sense
 - Arduino Nano 33 IoT (see note below)
 - Arduino Uno R4 Wifi (see note below)
+- Arduino MKR WiFi 1010
 - senseBox MCU with NINA-B31 module
 - ESP 32
 - STM32 (e.g. STM32WB55)
 
-Note: The Arduino Nano 33 IoT and the Arduino uno R4 are somewhat unusual. You will need to install the ArduinoBLE library to use it and you will need to call "PhyphoxBLE::poll()" periodically for it to work.
+Note: The Arduino Nano 33 IoT and the Arduino Uno R4 are somewhat unusual. You will need to install the ArduinoBLE library to use it and you will need to call "PhyphoxBLE::poll()" periodically for it to work.
 
 Note: When using the NINA-B31 module you must call PhyphoxBLE::poll() periodically (in loop() ) or the library will not work.
         The same applies to STM32

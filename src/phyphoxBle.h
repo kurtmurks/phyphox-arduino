@@ -53,7 +53,7 @@ static const char *deviceName = "phyphox-Arduino";
 
 #elif defined(ESP32) && !defined(ARDUINO_SENSEBOX_MCU_ESP32S2)
     #include "phyphoxBLE_ESP32.h"
-#elif defined(ARDUINO_SAMD_NANO_33_IOT) || defined(ARDUINO_UNOR4_WIFI)
+#elif defined(ARDUINO_SAMD_NANO_33_IOT) || defined(ARDUINO_UNOR4_WIFI) || defined(ARDUINO_SAMD_MKRWIFI1010)
     #include <ArduinoBLE.h>
     #include "phyphoxBLE_NanoIOT.h"
 #elif defined(ARDUINO_ARCH_STM32)

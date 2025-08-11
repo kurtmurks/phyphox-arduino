@@ -1,4 +1,4 @@
-#if defined(ARDUINO_SAMD_NANO_33_IOT) || defined(ARDUINO_UNOR4_WIFI)
+#if defined(ARDUINO_SAMD_NANO_33_IOT) || defined(ARDUINO_UNOR4_WIFI) || defined(ARDUINO_SAMD_MKRWIFI1010)
 
 #include "phyphoxBLE_NanoIOT.h"
 #include "Arduino.h"
