@@ -104,11 +104,18 @@ class MyCharCallback: public BLECharacteristicCallbacks {
 };
 
 class MyServerCallbacks: public BLEServerCallbacks {
+#if !defined(CONFIG_BT_NIMBLE_ROLE_PERIPHERAL)
     void onConnect(BLEServer* pServer, esp_ble_gatts_cb_param_t *param) {
       pServer->updateConnParams(param->connect.remote_bda,PhyphoxBLE::minConInterval,PhyphoxBLE::maxConInterval,PhyphoxBLE::slaveLatency,PhyphoxBLE::timeout);
       PhyphoxBLE::currentConnections+=1;
     };
-
+#else
+    void onConnect(BLEServer* pServer) {
+      uint16_t connId = pServer->getConnId();
+      pServer->updateConnParams(connId, PhyphoxBLE::minConInterval, PhyphoxBLE::maxConInterval, PhyphoxBLE::slaveLatency, PhyphoxBLE::timeout);
+      PhyphoxBLE::currentConnections+=1;
+    };
+#endif
     void onDisconnect(BLEServer* pServer) {
       PhyphoxBLE::disconnected();
       PhyphoxBLE::currentConnections-=1;
